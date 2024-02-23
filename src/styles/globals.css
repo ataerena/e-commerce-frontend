@@ -2,32 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body, #__next {
+  height: 100%
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+  /* BACKGROUND COLORS */
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  --primary-light-background: rgb(153, 255, 192);
+  --secondary-light-background: rgb(107, 210, 255);
+  --primary-dark-background: rgb(62, 62, 62);
+  --secondary-dark-background: rgb(72, 80, 61);
+  --navbar-light-background: rgb(0, 134, 49);
+  --navbar-dark-background: rgb(25, 25, 25);
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  --background-fade-effect: rgba(0, 0, 0, 0.2);
+
+  /* ----------------- */
+
+  /* FONT COLORS */
+
+  --light-font: black;
+  --dark-font: white;
+  --faded-font: rgb(222, 222, 222);
+
+  /* ----------- */
+
+  /* INPUTS */
+
+  --valid-input: rgb(108, 205, 108);
+  --invalid-input: rgb(255, 94, 30);
+  --idle-input: rgb(84, 186, 255);
+
+  /* ------ */
+
 }

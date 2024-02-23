@@ -1,0 +1,22 @@
+.light-theme {
+    background-color: var(--navbar-light-background);
+    color: var(--dark-font);
+    position: fixed;
+    width: 100%;
+    height: 3.5em;
+}
+.dark-theme {
+    background-color: var(--navbar-dark-background);
+    color: var(--dark-font);
+}
+
+.menu-element {
+    cursor: pointer;
+    text-align: center;
+    padding: .33em;
+    border-radius: .33em;
+
+    &:hover {
+        background-color: var(--background-fade-effect);
+    }
+}

@@ -1,0 +1,5 @@
+.light {
+    background: linear-gradient(to right, var(--primary-light-background), var(--secondary-light-background));
+    padding-top: 3.5em;
+    height: 100%;
+}
