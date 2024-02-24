@@ -1,6 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { StringValidator } from '@/services/utils/regex';
+import Request from '../../services/actions/index';
 
 import register from '../../styles/style modules/auth.module.css';
 import input from '../../styles/style modules/input.module.scss';
@@ -8,6 +10,7 @@ import button from '../../styles/style modules/buttons.module.scss';
 import clsx from 'clsx';
 
 export default function Register() {
+    const t = useTranslations('navbar');
     
     const genders = [
         { value: 'Gender'},
@@ -93,6 +96,45 @@ export default function Register() {
         setClickedProceed(true);
     }
 
+
+
+    const [countries, setCountries] = useState([]);
+    const [cities, setCities] = useState([]);
+    const [districts, setDistricts] = useState([]);
+
+    useEffect(() => {
+        Request.location.getCountries().then( (res: any) => {
+            setCountries(res.data.data);
+        })
+        
+    }, [])
+
+    useEffect(() => {
+        if (formData.country) {
+            const params = {
+                country: formData.country
+            }
+
+            Request.location.getCities(params).then( (res: any) => {
+                setCities(res.data.data.states);
+            })
+        }
+    }, [formData.country])
+
+    useEffect(() => {
+        if (formData.country && formData.city) {
+            const params = {
+                country: formData.country,
+                state: formData.city
+            }
+
+            Request.location.getDistricts(params).then( (res: any) => {
+                setDistricts(res.data.data);
+            })
+        }
+        
+    }, [formData.city])
+    
     return (
       <>
           <div className={`${register.shape} ${register.light} flex text-center p-2`}>
@@ -114,23 +156,23 @@ export default function Register() {
                   </div>
                   <div className={`flex justify-around text-center mb-4`}>
                       <select name='country' onChange={handleFormDataChange} value={formData.country} className={`w-3/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.country && input.valid)} ${clsx(clickedProceed && !formData.country && input.invalid)}`}>
-                        {country.map(item => (
-                            <option key={item.value} value={item.value}>
-                                {item.value}
+                        {countries.map((item:any) => (
+                            <option key={item.name} value={item.name}>
+                                {item.name}
                             </option>
                         ))}
                       </select>
-                      <select disabled name='city' onChange={handleFormDataChange} value={formData.city} className={`w-3/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.city && input.valid)} ${clsx(clickedProceed && !formData.city && input.invalid)}`}>
-                        {city.map(item => (
-                            <option key={item.value} value={item.value}>
-                                {item.value}
+                      <select disabled={formData.country.length <= 0} name='city' onChange={handleFormDataChange} value={formData.city} className={`w-3/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.city && input.valid)} ${clsx(clickedProceed && !formData.city && input.invalid)}`}>
+                        {cities.map((item:any) => (
+                            <option key={item.name} value={item.name}>
+                                {item.name}
                             </option>
                         ))}
                       </select>
-                      <select disabled name='district' onChange={handleFormDataChange} value={formData.district} className={`w-3/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.district && input.valid)} ${clsx(clickedProceed && !formData.district && input.invalid)}`}>
-                        {district.map(item => (
-                            <option key={item.value} value={item.value}>
-                                {item.value}
+                      <select disabled={formData.city.length <= 0} name='district' onChange={handleFormDataChange} value={formData.district} className={`w-3/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.district && input.valid)} ${clsx(clickedProceed && !formData.district && input.invalid)}`}>
+                        {districts.map((item:any) => (
+                            <option key={item} value={item}>
+                                {item}
                             </option>
                         ))}
                       </select>
@@ -154,10 +196,22 @@ export default function Register() {
 
               </div>
               <div className={`w-3/5 text-center`}>
-                  ATA
+                  {t('all')}
               </div>
 
           </div>
       </>
     );
 }
+
+
+
+export const getStaticProps = async (context: any) => {
+  const messages = (await import(`../../../messages/${context.locale}.json`)).default;
+
+  return {
+    props: {
+      messages,
+    },
+  };
+};

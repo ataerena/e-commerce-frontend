@@ -5,6 +5,7 @@ export class StringValidator {
   static isValidEmail(email: string): boolean {
     return this.emailRegex.test(email);
   }
+  
   static isValidPassword(password: string): boolean {
     return this.passwordRegex.test(password);
   }
