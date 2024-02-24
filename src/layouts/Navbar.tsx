@@ -3,7 +3,7 @@ import navbar from '../styles/style modules/navbar.module.scss';
 export default function Navbar () {
     return (
             <>
-                <div className={`row flex justify-around p-2 ${navbar['light-theme']}`}>
+                <div className={`row flex justify-around p-2 ${navbar.shape} ${navbar['light-theme']}`}>
                     <div className={`w-1/12 ${navbar['menu-element']}`}>
                         All Products
                     </div>

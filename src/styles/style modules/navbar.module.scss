@@ -1,13 +1,15 @@
+.shape {
+    height: fit-content;
+    box-shadow: 0 -.2em 1em .1em var(--navbar-fade) inset;
+}
+
 .light-theme {
-    background-color: var(--navbar-light-background);
-    color: var(--dark-font);
-    position: fixed;
-    width: 100%;
-    height: 3.5em;
+    background: linear-gradient(to bottom, var(--navbar-light-top), var(--navbar-light-bottom));
+    color: var(--light-font);
 }
 .dark-theme {
-    background-color: var(--navbar-dark-background);
-    color: var(--dark-font);
+    background: linear-gradient(to bottom, var(--navbar-light-top), var(--navbar-light-bottom));
+    color: var(--light-font);
 }
 
 .menu-element {
@@ -15,8 +17,11 @@
     text-align: center;
     padding: .33em;
     border-radius: .33em;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
     &:hover {
-        background-color: var(--background-fade-effect);
+        text-decoration: underline;
     }
 }

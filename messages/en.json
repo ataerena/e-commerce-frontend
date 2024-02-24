@@ -1,0 +1,11 @@
+{
+    "navbar": {
+        "all": "All Products",
+        "house": "House",
+        "cloth": "Clothing",
+        "tech": "Technology",
+        "pet": "Pet",
+        "grocery": "Grocery",
+        "profile": "Profile"
+    }
+}

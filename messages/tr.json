@@ -1,0 +1,11 @@
+{
+    "navbar": {
+        "all": "Tüm Ürünler",
+        "house": "Ev",
+        "cloth": "Giyim",
+        "tech": "Teknoloji",
+        "pet": "Evcil Hayvan",
+        "grocery": "Market",
+        "profile": "Profil"
+    }
+}

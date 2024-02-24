@@ -2,39 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #__next {
-  height: 100%
+html, body, #__next, .wrapper {
+  margin: 0;
+  height: 100%;
+
+  display: flex;
+  flex-flow: column;
 }
 
-:root {
+.main-screen {
+  flex: auto;
+}
 
-  /* BACKGROUND COLORS */
-
-  --primary-light-background: rgb(153, 255, 192);
-  --secondary-light-background: rgb(107, 210, 255);
-  --primary-dark-background: rgb(62, 62, 62);
-  --secondary-dark-background: rgb(72, 80, 61);
-  --navbar-light-background: rgb(0, 134, 49);
-  --navbar-dark-background: rgb(25, 25, 25);
-
-  --background-fade-effect: rgba(0, 0, 0, 0.2);
-
-  /* ----------------- */
-
-  /* FONT COLORS */
-
-  --light-font: black;
-  --dark-font: white;
-  --faded-font: rgb(222, 222, 222);
-
-  /* ----------- */
-
-  /* INPUTS */
-
-  --valid-input: rgb(108, 205, 108);
-  --invalid-input: rgb(255, 94, 30);
-  --idle-input: rgb(84, 186, 255);
-
-  /* ------ */
-
+select {
+  cursor: pointer;
 }

@@ -1,5 +1,8 @@
-.light {
-    background: linear-gradient(to right, var(--primary-light-background), var(--secondary-light-background));
-    padding-top: 3.5em;
+.shape {
     height: 100%;
+    box-shadow: 0 .2em 1em .1em var(--navbar-fade) inset;
+}
+
+.light {
+    background: linear-gradient(to bottom, var(--primary-light-background), var(--secondary-light-background));
 }

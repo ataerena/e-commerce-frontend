@@ -1,0 +1,39 @@
+.default {
+    border-radius: .25em;
+    padding: .25em;
+    padding-left: .5em;
+    padding-right: .5em;
+    transition: scale 100ms;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+
+    &:active {
+        scale: .96;
+        outline: thin solid gray;
+    }
+}
+
+.pill {
+    border-radius: 1.25em;
+    padding: .25em;
+    padding-left: .5em;
+    padding-right: .5em;
+    transition: scale 100ms;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+
+    &:active {
+        scale: .96;
+        outline: thin solid gray;
+    }
+}
+
+.success {
+    background-color: var(--valid-input);
+    box-shadow: 0 .1em .4em .01em black;
+}
+
+.error {
+    background-color: var(--invalid-input);
+    box-shadow: 0 .1em .4em .01em black;
+}
