@@ -1,11 +1,25 @@
 {
+    "buttons": {
+        "proceed": "Proceed",
+        "ok": "OK",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "confirm": "Confirm",
+        "pay": "Pay"
+    },
     "navbar": {
-        "all": "All Products",
-        "house": "House",
-        "cloth": "Clothing",
-        "tech": "Technology",
-        "pet": "Pet",
-        "grocery": "Grocery",
-        "profile": "Profile"
+        "mainCategories": {
+            "_0": "All Products",
+            "_1": "House",
+            "_2": "Clothing",
+            "_3": "Technology",
+            "_4": "Pet",
+            "_5": "Grocery",
+            "_6": "Profile"
+        }   
+    },
+    "register": {
+        "privacyNote": "We respect your concerns about privacy. This Privacy Notice applies to the personal data that we collect and handle for the purposes of maintaining and providing Bank-related information to visitors of this website. For the purposes of this Privacy Notice, “personal data” means any information relating to an identified or identifiable individual."
     }
 }

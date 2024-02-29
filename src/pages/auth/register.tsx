@@ -10,28 +10,10 @@ import button from '../../styles/style modules/buttons.module.scss';
 import clsx from 'clsx';
 
 export default function Register() {
-    const t = useTranslations('navbar');
+    const t = useTranslations();
     
     const genders = [
         { value: 'Gender'},
-        { value: 'Male'},
-        { value: 'Female'},
-        { value: 'Other'}
-    ];
-    const country = [
-        { value: 'Country'},
-        { value: 'Male'},
-        { value: 'Female'},
-        { value: 'Other'}
-    ];
-    const city = [
-        { value: 'City'},
-        { value: 'Male'},
-        { value: 'Female'},
-        { value: 'Other'}
-    ];
-    const district = [
-        { value: 'District'},
         { value: 'Male'},
         { value: 'Female'},
         { value: 'Other'}
@@ -94,6 +76,24 @@ export default function Register() {
     const [clickedProceed, setClickedProceed] = useState<boolean>(false);
     const handleClickProceed = () => {
         setClickedProceed(true);
+        const params = {
+            user_firstname: formData.name,
+            user_lastname: formData.surname,
+            user_email: email,
+            user_age: formData.age,
+            user_gender: formData.gender,
+            user_country: formData.country,
+            user_city: formData.city,
+            user_district: formData.district,
+            user_address: formData.address,
+            user_pwd: password,
+            username: formData.username
+        }
+
+        Request.auth.registerUser(params)
+            .then( res => {
+                alert(res.data.message);
+            })
     }
 
 
@@ -191,12 +191,16 @@ export default function Register() {
 
 
                   <button onClick={handleClickProceed} className={`${button.pill} ${button.success}`}>
-                    Proceed
+                    {t('buttons.ok')}
                   </button>
+
+                  <footer className='mt-8'>
+                    {t('register.privacyNote')}
+                  </footer>
 
               </div>
               <div className={`w-3/5 text-center`}>
-                  {t('all')}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
 
           </div>

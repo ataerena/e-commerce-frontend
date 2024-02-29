@@ -1,12 +1,15 @@
-import LocationAPI from './locationAPI';
+import AuthAPI from './apis/authAPI';
+import LocationAPI from './apis/locationAPI';
 
 class Request {
-    location: LocationAPI
 
+    location: LocationAPI;
+    auth: AuthAPI
 
 
     constructor() {
         this.location = new LocationAPI();
+        this.auth = new AuthAPI();
     }
 }
 
