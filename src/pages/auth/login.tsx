@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useUser } from '@/layouts/MainLayout';
 
 import Request from '../../services/actions/index';
 
@@ -10,6 +11,7 @@ import clsx from 'clsx';
 
 export default function Register() {
     const t = useTranslations();
+    const { setLoggedUserData } = useUser();
 
     const [password, setPassword] = useState<string>('');
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +34,8 @@ export default function Register() {
         };
         Request.auth.loginUser(params)
             .then( res => {
-              alert(res.data.message);
+              alert(res.data);
+              setLoggedUserData(res.data.user_data);
             })
             .catch( ({response}) => {
               alert(response.data.message);  
