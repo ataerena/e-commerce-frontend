@@ -1,0 +1,41 @@
+.default {
+    color: var(--default-icon);
+    margin-left: .3em;
+}
+.active {
+    color: var(--active-icon);
+    margin-left: .3em;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.negative-spinner {
+    animation: scaleDown 250ms linear 1;
+    transform-origin: center;
+}
+.positive-spinner {
+    animation: scaleUp 250ms linear 1;
+    transform-origin: center;
+}
+
+
+
+
+
+
+@keyframes scaleDown {
+    from {
+        transform: rotate(0deg) scale(1);
+    } to {
+        transform: rotate(360deg) scale(0);
+    }
+}
+@keyframes scaleUp {
+    from {
+        transform: rotate(0deg) scale(1);
+    } to {
+        transform: rotate(360deg) scale(0);
+    }
+}

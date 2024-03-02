@@ -1,0 +1,47 @@
+{
+    "buttons": {
+        "proceed": "Proceed",
+        "ok": "OK",
+        "cancel": "Cancel",
+        "back": "Back",
+        "next": "Next",
+        "confirm": "Confirm",
+        "pay": "Pay"
+    },
+    "navbar": {
+        "mainCategories": {
+            "_0": "Homepage",
+            "_1": "House",
+            "_2": "Clothing",
+            "_3": "Technology",
+            "_4": "Pet",
+            "_5": "Grocery",
+            "_6": "Profile"
+        },
+        "settings": {
+            "login": "Login"
+        }
+    },
+    "register": {
+        "privacyNote": "We respect your concerns about privacy. This Privacy Notice applies to the personal data that we collect and handle for the purposes of maintaining and providing Bank-related information to visitors of this website. For the purposes of this Privacy Notice, “personal data” means any information relating to an identified or identifiable individual."
+    },
+    "home": {
+        "carousel": {
+            "_01": {
+                "caption": "Discounts up to 66%",
+                "label": "Check out a special offer for you!",
+                "text": "Offers may vary depending on your choice of currency."
+            },
+            "_02": {
+                "caption": "Retail shop",
+                "label": "Come visit us at our place!",
+                "text": "We are open from 10 AM to 7.30 PM every day of the week."
+            },
+            "_03": {
+                "caption": "Social Media",
+                "label": "Follow our social media and stay up to date with our special offers!",
+                "text": ""
+            }
+        }
+    }
+}

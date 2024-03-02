@@ -1,0 +1,7 @@
+.shape {
+    height: 100%;
+}
+
+.light {
+    background: radial-gradient(ellipse 35% 80%, var(--primary-light-background), var(--secondary-light-background));
+}

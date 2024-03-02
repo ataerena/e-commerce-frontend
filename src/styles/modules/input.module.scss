@@ -1,0 +1,29 @@
+.shape {
+    border-radius: .33em;
+    margin: .33em;
+    outline: thin solid gray;
+    padding-top: .15em;
+    padding-bottom: .15em;
+    padding-right: .33em;
+    padding-left: .33em;
+
+    transition: box-shadow 200ms;
+}
+
+.idle {
+
+    &:focus {
+        box-shadow: 0 0 .1em .2em var(--idle-input);
+        outline: thin solid var(--idle-input);
+    }
+}
+
+.valid {
+    box-shadow: 0 0 .1em .2em var(--valid-input);
+    outline: thin solid var(--valid-input);
+}
+
+.invalid {
+    box-shadow: 0 0 .1em .2em var(--invalid-input);
+    outline: thin solid var(--invalid-input);
+}

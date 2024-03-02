@@ -1,0 +1,56 @@
+:root {
+
+    /* BACKGROUND COLORS */
+  
+    --primary-light-background: rgb(255, 245, 153);
+    --secondary-light-background: rgb(255, 164, 107);
+    --tertiary-light-background: rgb(255, 199, 164);
+    --primary-dark-background: rgb(62, 62, 62);
+    --secondary-dark-background: rgb(72, 80, 61);
+    --tertiary-dark-background: rgb(0, 65, 114);
+
+    --navbar-light-top: rgb(220, 220, 220);
+    --navbar-dark-top: rgb(75, 75, 75);
+    --navbar-light-bottom: rgb(255, 245, 153);
+    --navbar-dark-bottom: rgb(255, 245, 153);
+  
+    --background-fade-effect: rgba(0, 0, 0, 0.2);
+  
+    /* ----------------- */
+  
+    /* FONT COLORS */
+  
+    --light-font: black;
+    --dark-font: white;
+    --faded-font: rgb(222, 222, 222);
+  
+    /* ----------- */
+  
+    /* INPUTS */
+  
+    --valid-input: rgb(108, 205, 108);
+    --invalid-input: rgb(255, 94, 30);
+    --idle-input: rgb(158, 216, 255);
+  
+    /* ------ */
+
+    /* UTILITY COLORS */
+
+    --navbar-fade: rgba(255, 137, 64, 0.433);
+
+    /* -------------- */
+
+    /* ICON COLORS */
+
+    --default-icon: rgb(68, 68, 68);
+    --active-icon: rgb(128, 128, 128);
+
+    /* ------------- */
+
+    /* OTHERS */
+
+    --dropdown-background: rgb(255, 191, 112);
+    --dropdown-border-color: rgb(171, 124, 66);
+    
+  
+  }
