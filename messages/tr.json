@@ -10,16 +10,39 @@
     },
     "navbar": {
         "mainCategories": {
-            "_0": "Tüm Ürünler",
+            "_0": "Anasayfa",
             "_1": "Ev",
             "_2": "Giyim",
             "_3": "Teknoloji",
             "_4": "Evcil Hayvan",
             "_5": "Market",
             "_6": "Profil"
-        }     
+        },
+        "settings": {
+            "login": "Giriş"
+        }
     },
     "register": {
         "privacyNote": "We respect your concerns about privacy. This Privacy Notice applies to the personal data that we collect and handle for the purposes of maintaining and providing Bank-related information to visitors of this website. For the purposes of this Privacy Notice, “personal data” means any information relating to an identified or identifiable individual."
+    },
+    "home": {
+        "carousel": {
+            "_01": {
+                "caption": "%66'ya varan indirimler",
+                "label": "Size özel tekliflere göz atın!",
+                "text": "Teklifler, tercih ettiğiniz para birimine bağlı olarak değişebilir."
+            },
+            "_02": {
+                "caption": "Perakende mağaza",
+                "label": "Bizi yerimizde ziyaret edin!",
+                "text": "Haftanın her günü 10.00'dan 19.30'a kadar açığız."
+            },
+            "_03": {
+                "caption": "Sosyal Medya",
+                "label": "Sosyal medyamızı takip edin ve özel tekliflerimizden haberdar olun!",
+                "text": ""
+            }
+        }
     }
+    
 }

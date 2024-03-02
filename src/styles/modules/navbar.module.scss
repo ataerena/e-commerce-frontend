@@ -1,6 +1,8 @@
 .shape {
     height: fit-content;
     box-shadow: 0 -.2em 1em .1em var(--navbar-fade) inset;
+
+    z-index: 99; // have to do this in order to show the navbar dropdown items //
 }
 
 .light-theme {
@@ -20,7 +22,26 @@
     font-family: "Anta", sans-serif;
     font-weight: 400;
     font-style: normal;
+    position: relative;
 
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.dropdown-element {
+    text-align: center;
+    padding: .33em;
+    border-radius: .33em;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+
+}
+
+.clickable {
+    cursor: pointer;
     &:hover {
         text-decoration: underline;
     }

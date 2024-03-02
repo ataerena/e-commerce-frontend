@@ -16,5 +16,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  prefix: 'tw-', // had to add since i want to use bootstrap too
 };
 export default config;

@@ -4,8 +4,10 @@
   
     --primary-light-background: rgb(255, 245, 153);
     --secondary-light-background: rgb(255, 164, 107);
+    --tertiary-light-background: rgb(255, 199, 164);
     --primary-dark-background: rgb(62, 62, 62);
     --secondary-dark-background: rgb(72, 80, 61);
+    --tertiary-dark-background: rgb(0, 65, 114);
 
     --navbar-light-top: rgb(220, 220, 220);
     --navbar-dark-top: rgb(75, 75, 75);
@@ -37,5 +39,18 @@
     --navbar-fade: rgba(255, 137, 64, 0.433);
 
     /* -------------- */
+
+    /* ICON COLORS */
+
+    --default-icon: rgb(68, 68, 68);
+    --active-icon: rgb(128, 128, 128);
+
+    /* ------------- */
+
+    /* OTHERS */
+
+    --dropdown-background: rgb(255, 191, 112);
+    --dropdown-border-color: rgb(171, 124, 66);
+    
   
   }

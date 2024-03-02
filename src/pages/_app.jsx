@@ -1,11 +1,15 @@
 import MainLayout from "@/layouts/MainLayout";
 import "@/styles/globals.css";
 import "@/styles/variables.css";
-import type { AppProps } from "next/app";
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
 
-export default function App({ Component, pageProps }: AppProps) {
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
+
+
+export default function App({ Component, pageProps }) {
   return (
     <NextIntlClientProvider
         locale={useRouter().locale}

@@ -1,21 +1,12 @@
-import React, { ReactNode, useState, useContext, createContext, Dispatch, SetStateAction, useEffect } from 'react';
+import React, { useState, useContext, createContext, useEffect } from 'react';
 import Navbar from './Navbar';
 
-interface UserContextProps {
-  loggedUserData: any;
-  setLoggedUserData: Dispatch<SetStateAction<any>>;
-}
+const UserContext = createContext(undefined);
 
-const UserContext = createContext<UserContextProps | undefined>(undefined);
+const DefaultLayout = ({ children }) => {
+  const [loggedUserData, setLoggedUserData] = useState(null);
 
-interface DefaultLayoutProps {
-  children: ReactNode;
-}
-
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
-  const [loggedUserData, setLoggedUserData] = useState<any | null>(null);
-
-  const contextValue: UserContextProps = {
+  const contextValue = {
     loggedUserData,
     setLoggedUserData,
   };
