@@ -7,9 +7,11 @@ import { useTranslations } from 'next-intl';
 
 import home from '../styles/modules/home.module.css';
 import carousel from '../styles/modules/carousel.module.scss'
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const t = useTranslations('home.carousel');
+
   const images = [
     {
         route: '/',

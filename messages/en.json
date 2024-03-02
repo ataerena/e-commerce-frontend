@@ -19,7 +19,8 @@
             "_6": "Profile"
         },
         "settings": {
-            "login": "Login"
+            "login": "Login",
+            "logout": "Logout"
         }
     },
     "register": {

@@ -19,7 +19,8 @@
             "_6": "Profil"
         },
         "settings": {
-            "login": "Giriş"
+            "login": "Giriş",
+            "logout": "Çıkış"
         }
     },
     "register": {

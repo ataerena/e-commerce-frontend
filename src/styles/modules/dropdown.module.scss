@@ -8,10 +8,11 @@
     position: absolute;
 
     border: thin solid var(--dropdown-border-color);
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    border-top: 0;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
 
-    background-color: var(--dropdown-background);
+    background: linear-gradient(to bottom, rgba(120, 120, 120, 0.1), var(--dropdown-background));
     filter: drop-shadow(0 .2em .33em black);
 }
 

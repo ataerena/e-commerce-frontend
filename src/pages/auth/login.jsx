@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useUser } from '@/layouts/MainLayout';
 
 import Request from '../../services/actions/index';
 
@@ -12,10 +11,15 @@ import clsx from 'clsx';
 import { ToastContainer, toast } from 'react-toastify';
 import { defaultConfig } from '../../services/constants/notifConfig';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'node_modules/next/router';
+
+import useUserStore from '@/services/reducers/userStore';
 
 export default function Register() {
     const t = useTranslations();
-    const { setLoggedUserData } = useUser();
+    const router = useRouter();
+    
+    const { user, setUser } = useUserStore();
 
     const [password, setPassword] = useState('');
     const handlePassword = (e) => {
@@ -30,20 +34,41 @@ export default function Register() {
 
 
     const [clickedProceed, setClickedProceed] = useState(false);
-    const handleClickProceed = () => {
+    const handleClickProceed = async (e) => {
         setClickedProceed(true);
         const params = {
             username: username,
             user_pwd: password
         };
         Request.auth.loginUser(params)
-          .then( res => {
+          .then( async res => {
+            const userData = res.data.user_data;
+            await setUser(userData);
             toast.success(res.data.message, defaultConfig);
-            setLoggedUserData(res.data.user_data);
+            router.push('/')
           })
           .catch( ({response}) => {
             toast.error(response.data.message, defaultConfig);
           })
+    }
+    const handleHitEnterProceed = async (e) => {
+      if(e.key === 'Enter') {
+        setClickedProceed(true);
+        const params = {
+            username: username,
+            user_pwd: password
+        };
+        Request.auth.loginUser(params)
+          .then( async res => {
+            const userData = res.data.user_data;
+            await setUser(userData);
+            toast.success(res.data.message, defaultConfig);
+            router.push('/')
+          })
+          .catch( ({response}) => {
+            toast.error(response.data.message, defaultConfig);
+          })
+      }
     }
     
     return (
@@ -53,8 +78,8 @@ export default function Register() {
 
               <div className={`tw-w-2/5 tw-p-4 tw-justify-center tw-text-center tw-border-thin tw-border-r tw-border-gray-500`}>
                   <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
-                    <input type="text" placeholder="Username" name='username' onChange={handleUsername} value={username} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && username && input.valid)} ${clsx(clickedProceed && !username && input.invalid)}`}/>
-                    <input type="password" placeholder="Password" value={password} onChange={handlePassword} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && password && input.valid)} ${clsx(clickedProceed && !password && input.invalid)}`}/>
+                    <input onKeyUp={handleHitEnterProceed} type="text" placeholder="Username" name='username' onChange={handleUsername} value={username} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && username && input.valid)} ${clsx(clickedProceed && !username && input.invalid)}`}/>
+                    <input onKeyUp={handleHitEnterProceed} type="password" placeholder="Password" value={password} onChange={handlePassword} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && password && input.valid)} ${clsx(clickedProceed && !password && input.invalid)}`}/>
                   </div>
 
 

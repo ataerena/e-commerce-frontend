@@ -3,7 +3,7 @@ import icon from '../styles/modules/icons.module.scss';
 
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleChevronDown, faGear } from '@fortawesome/free-solid-svg-icons';
@@ -12,9 +12,18 @@ import clsx from 'clsx';
 
 import Dropdown from '../components/Dropdown';
 
+import useUserStore from '@/services/reducers/userStore';
+
 export default function Navbar () {
     const t = useTranslations('navbar');
     const router = useRouter();
+
+    const {user, setUser } = useUserStore();
+    const loggedIn = user ? true : false;
+
+    const logout = () => {
+        setUser(null);
+    }
 
     const [settingsOn, setSettingsOn] = useState(true);
     const [settingsClicked, setSettingsClicked] = useState(false);
@@ -29,9 +38,16 @@ export default function Navbar () {
     const settingsItems = [
         {
             text: t('settings.login'),
-            route: "/auth/login"
+            route: "/auth/login",
+            logStateExistance: false,
+        },
+        {
+            text: t('settings.logout'),
+            route: "/",
+            logStateExistance: true,
+            func: logout
         }
-    ] 
+    ]
 
 
     const goToHomePage = () => {
@@ -73,10 +89,10 @@ export default function Navbar () {
                     </div>
                     <div className={`tw-w-1/12 ${navbar['dropdown-element']}`}>
                         <span className={navbar.clickable}>
-                            {t('mainCategories._6')}
+                            {loggedIn ? user['user_firstname'] : t('mainCategories._6')}
                         </span>
                         {!settingsOn ? chevronDown : gear}
-                        <Dropdown items={settingsItems} animClass={settingsOn ? 'fadeOut' : 'fadeIn'}></Dropdown>
+                        <Dropdown items={settingsItems} animClass={settingsOn ? 'fadeOut' : 'fadeIn'} loggedIn={loggedIn}></Dropdown>
                     </div>
                 </div>
             </>
