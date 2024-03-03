@@ -1,4 +1,5 @@
 .shape {
+    position: relative;
     height: fit-content;
     box-shadow: 0 -.2em 1em .1em var(--navbar-fade) inset;
 
@@ -44,5 +45,18 @@
     cursor: pointer;
     &:hover {
         text-decoration: underline;
+    }
+}
+
+.language {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    &:hover {
+        color: rgb(65, 65, 65)
     }
 }

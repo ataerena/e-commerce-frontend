@@ -50,6 +50,7 @@
     /* OTHERS */
 
     --dropdown-background: rgb(255, 191, 112);
+    --dropdown-background-fade: rgb(255, 191, 112, .3);
     --dropdown-border-color: rgba(171, 124, 66, 0.275);
     
   

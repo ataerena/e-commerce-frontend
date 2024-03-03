@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronDown, faGear } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronDown, faGear, faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 import clsx from 'clsx';
 
@@ -46,6 +46,11 @@ export default function Navbar () {
             route: "/",
             logStateExistance: true,
             func: logout
+        },
+        {
+            text: t('settings.register'),
+            route: "/auth/register",
+            logStateExistance: false
         }
     ]
 
@@ -93,6 +98,10 @@ export default function Navbar () {
                         </span>
                         {!settingsOn ? chevronDown : gear}
                         <Dropdown items={settingsItems} animClass={settingsOn ? 'fadeOut' : 'fadeIn'} loggedIn={loggedIn}></Dropdown>
+                    </div>
+
+                    <div className={navbar.language}>
+                        <FontAwesomeIcon icon={faLanguage} />
                     </div>
                 </div>
             </>

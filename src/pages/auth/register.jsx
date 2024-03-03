@@ -17,10 +17,22 @@ export default function Register() {
     const t = useTranslations();
     
     const genders = [
-        { value: 'Gender'},
-        { value: 'Male'},
-        { value: 'Female'},
-        { value: 'Other'}
+        { 
+            value: null,
+            text: t('register.auth_fields.genders.gender')
+        },
+        { 
+            value: "Male",
+            text: t('register.auth_fields.genders.male')
+        },
+        { 
+            value: "Female",
+            text: t('register.auth_fields.genders.female')
+        },
+        { 
+            value: "Other",
+            text: t('register.auth_fields.genders.other')
+        }
     ];
 
     const [formData, setFormData] = useState({
@@ -148,21 +160,21 @@ export default function Register() {
               <ToastContainer />
 
               <div className={`tw-w-2/5 tw-p-4 tw-justify-center tw-text-center tw-border-thin tw-border-r tw-border-gray-500`}>
-                  <div className={`flex justify-around text-center mb-4`}>
-                      <input type="text" placeholder="Name" name='name' onChange={handleFormDataChange} value={formData.name} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.name && input.valid)} ${clsx(clickedProceed && !formData.name && input.invalid)}`}/>
-                      <input type="text" placeholder="Surname" name='surname' onChange={handleFormDataChange} value={formData.surname} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.surname && input.valid)} ${clsx(clickedProceed && !formData.surname && input.invalid)}`}/>
+                  <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
+                      <input type="text" placeholder={t('register.auth_fields.name')} name='name' onChange={handleFormDataChange} value={formData.name} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.name && input.valid)} ${clsx(clickedProceed && !formData.name && input.invalid)}`}/>
+                      <input type="text" placeholder={t('register.auth_fields.surname')} name='surname' onChange={handleFormDataChange} value={formData.surname} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.surname && input.valid)} ${clsx(clickedProceed && !formData.surname && input.invalid)}`}/>
                   </div>
-                  <div className={`flex justify-around text-center mb-4`}>
-                      <input type="text" placeholder="Age" name='age' onChange={handleFormDataChange} value={formData.age} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.age && input.valid)} ${clsx(clickedProceed && !formData.age && input.invalid)}`}/>
+                  <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
+                      <input type="date" placeholder={t('register.auth_fields.age')} name='age' onChange={handleFormDataChange} value={formData.age} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.age && input.valid)} ${clsx(clickedProceed && !formData.age && input.invalid)}`}/>
                       <select name='gender' onChange={handleFormDataChange} value={formData.gender} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.gender && input.valid)} ${clsx(clickedProceed && !formData.gender && input.invalid)}`}>
                           {genders.map(item => (
                               <option key={item.value} value={item.value}>
-                                  {item.value}
+                                  {item.text}
                               </option>
                           ))}
                       </select>
                   </div>
-                  <div className={`flex justify-around text-center mb-4`}>
+                  <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
                       <select name='country' onChange={handleFormDataChange} value={formData.country} className={`tw-w-3/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.country && input.valid)} ${clsx(clickedProceed && !formData.country && input.invalid)}`}>
                         {countries.map((item) => (
                             <option key={item.name} value={item.name}>
@@ -186,15 +198,15 @@ export default function Register() {
                       </select>
                   </div>
                   <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
-                      <textarea placeholder="Address" name='address' onChange={handleFormDataChange} value={formData.address} className={`tw-w-11/12 tw-h-[7em] tw-min-h-[4em] tw-max-h-[12em] ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.address && input.valid)} ${clsx(clickedProceed && !formData.address && input.invalid)}`}/>
+                      <textarea placeholder={t('register.auth_fields.address')} name='address' onChange={handleFormDataChange} value={formData.address} className={`tw-w-11/12 tw-h-[7em] tw-min-h-[4em] tw-max-h-[12em] ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.address && input.valid)} ${clsx(clickedProceed && !formData.address && input.invalid)}`}/>
                   </div>
                   <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
-                      <input type="text" placeholder="Email" value={email} onChange={handleEmail} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && emailValid && input.valid)} ${clsx(clickedProceed && !emailValid && input.invalid)}`}/>
-                      <input type="text" placeholder="Username" name='username' onChange={handleFormDataChange} value={formData.username} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.username && input.valid)} ${clsx(clickedProceed && !formData.username && input.invalid)}`}/>
+                      <input type="text" placeholder={t('register.auth_fields.email')} value={email} onChange={handleEmail} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && emailValid && input.valid)} ${clsx(clickedProceed && !emailValid && input.invalid)}`}/>
+                      <input type="text" placeholder={t('register.auth_fields.username')} name='username' onChange={handleFormDataChange} value={formData.username} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && formData.username && input.valid)} ${clsx(clickedProceed && !formData.username && input.invalid)}`}/>
                   </div>
                   <div className={`tw-flex tw-justify-around tw-text-center tw-mb-4`}>
-                      <input type="password" placeholder="Password" value={password} onChange={handlePassword} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && passwordValid && passwordsMatch(password, passwordConfirm) && input.valid)} ${clsx(clickedProceed && (!passwordValid || !passwordsMatch(password, passwordConfirm)) && input.invalid)}`}/>
-                      <input type="password" placeholder="Password Confirm" value={passwordConfirm} onChange={handlePasswordConfirm} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && passwordConfirm && passwordsMatch(password, passwordConfirm) && input.valid)} ${clsx(clickedProceed && (!passwordConfirm || !passwordsMatch(password, passwordConfirm)) && input.invalid)}`}/>
+                      <input type="password" placeholder={t('register.auth_fields.password')} value={password} onChange={handlePassword} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && passwordValid && passwordsMatch(password, passwordConfirm) && input.valid)} ${clsx(clickedProceed && (!passwordValid || !passwordsMatch(password, passwordConfirm)) && input.invalid)}`}/>
+                      <input type="password" placeholder={t('register.auth_fields.password_confirm')} value={passwordConfirm} onChange={handlePasswordConfirm} className={`tw-w-5/12 ${input.shape} ${input.idle} ${clsx(clickedProceed && passwordConfirm && passwordsMatch(password, passwordConfirm) && input.valid)} ${clsx(clickedProceed && (!passwordConfirm || !passwordsMatch(password, passwordConfirm)) && input.invalid)}`}/>
                   </div>
 
 

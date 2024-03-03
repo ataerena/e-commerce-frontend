@@ -20,11 +20,28 @@
         },
         "settings": {
             "login": "Giriş",
-            "logout": "Çıkış"
+            "logout": "Çıkış",
+            "register": "Kayıt"
         }
     },
     "register": {
-        "privacyNote": "We respect your concerns about privacy. This Privacy Notice applies to the personal data that we collect and handle for the purposes of maintaining and providing Bank-related information to visitors of this website. For the purposes of this Privacy Notice, “personal data” means any information relating to an identified or identifiable individual."
+        "privacyNote": "We respect your concerns about privacy. This Privacy Notice applies to the personal data that we collect and handle for the purposes of maintaining and providing Bank-related information to visitors of this website. For the purposes of this Privacy Notice, “personal data” means any information relating to an identified or identifiable individual.",
+        "auth_fields": {
+            "name": "Ad",
+            "surname": "Soyad",
+            "age": "Yaş",
+            "address": "Adres",
+            "email": "E-posta",
+            "username": "Kullanıcı Adı",
+            "password": "Şifre",
+            "password_confirm": "Şifre Onay",
+            "genders": {
+                "gender": "Cinsiyet",
+                "male": "Erkek",
+                "female": "Kadın",
+                "other": "Diğer"
+            }
+        }
     },
     "home": {
         "carousel": {
