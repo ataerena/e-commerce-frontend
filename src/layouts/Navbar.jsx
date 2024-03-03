@@ -36,11 +36,11 @@ export default function Navbar () {
     };
 
     const settingsItems = [
-        {
+        /* {
             text: t('settings.login'),
             route: "/auth/login",
             logStateExistance: false,
-        },
+        }, */
         {
             text: t('settings.logout'),
             route: "/",
@@ -48,8 +48,8 @@ export default function Navbar () {
             func: logout
         },
         {
-            text: t('settings.register'),
-            route: "/auth/register",
+            text: t('settings.auth'),
+            route: "/auth",
             logStateExistance: false
         }
     ]

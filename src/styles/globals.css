@@ -8,6 +8,11 @@ html, body, #__next, .wrapper {
 
   display: flex;
   flex-flow: column;
+  font-family: "Anta", sans-serif;
+}
+
+.wrapper {
+  background: linear-gradient(to bottom, var(--secondary-light-background), var(--primary-light-background));
 }
 
 .main-screen {
@@ -16,4 +21,17 @@ html, body, #__next, .wrapper {
 
 select {
   cursor: pointer;
+}
+
+.fading-in {
+  animation: fadeIn 200ms ease-in;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
 }

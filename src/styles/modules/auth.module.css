@@ -1,8 +1,6 @@
 .shape {
     height: 100%;
     box-shadow: 0 .2em 1em .1em var(--navbar-fade) inset;
-
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .light {

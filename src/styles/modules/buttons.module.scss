@@ -37,3 +37,8 @@
     background-color: var(--invalid-input);
     box-shadow: 0 .1em .4em .01em black;
 }
+
+.disabled {
+    filter: grayscale(55%);
+    pointer-events: none;
+}

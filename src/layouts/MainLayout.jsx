@@ -1,9 +1,7 @@
 import { useRouter } from 'node_modules/next/router';
 import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
-import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.css';
-import spinner from '../styles/modules/spinner.module.scss';
 
 const DefaultLayout = ({ children }) => {
   const router = useRouter();
@@ -13,7 +11,11 @@ const DefaultLayout = ({ children }) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 200);
+    }, 200); 
+    // have to change the fade animation duration if you want to change this value for the timeout.
+    // this was specifically set for a not too snappy UX which gives the feeling of uninteractive UI for the user (at least it felt that way to me).
+    // if found weird, could remove this or change the value.
+    // the first solution was to use a bootstrap/Spinner for giving a loading effect but that felt like overkill.
   }
 
   useEffect(() => {
@@ -26,15 +28,8 @@ const DefaultLayout = ({ children }) => {
 
   return (
     <div className='wrapper'>
-      {
-        loading ?
-        <div className={spinner['cover-screen']} >
-          <Spinner animation="grow"></Spinner>
-        </div>
-        : null
-      }
       <Navbar></Navbar>
-      <main className="main-screen">{children}</main>
+      <main className={`main-screen ${loading ? 'fading-in' : null}`}>{children}</main>
     </div>
   );
 };

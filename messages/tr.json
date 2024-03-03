@@ -2,6 +2,8 @@
     "buttons": {
         "proceed": "Devam",
         "ok": "Tamam",
+        "login": "Giriş",
+        "register": "Kaydol",
         "cancel": "İptal",
         "back": "Geri",
         "next": "İleri",
@@ -21,10 +23,13 @@
         "settings": {
             "login": "Giriş",
             "logout": "Çıkış",
-            "register": "Kayıt"
+            "register": "Kayıt",
+            "auth": "Kaydol/Giriş"
         }
     },
     "register": {
+        "join_us": "Aramıza katıl!",
+        "login": "Bir hesabın var mı?",
         "privacyNote": "We respect your concerns about privacy. This Privacy Notice applies to the personal data that we collect and handle for the purposes of maintaining and providing Bank-related information to visitors of this website. For the purposes of this Privacy Notice, “personal data” means any information relating to an identified or identifiable individual.",
         "auth_fields": {
             "name": "Ad",
