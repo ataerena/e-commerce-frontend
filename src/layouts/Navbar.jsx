@@ -33,6 +33,18 @@ export default function Navbar () {
         }, 200);
     };
 
+    const changeLanguage = () => {
+        const currentPath = router.pathname;
+        const currentLocale = router.locale;
+
+        if (currentLocale === 'en') {
+            router.push(`/tr/${currentPath}`)
+        }
+        if (currentLocale === 'tr') {
+            router.push(`/en/${currentPath}`)
+        }
+    };
+
     const settingsItems = [
         {
             text: t('settings.logout'),
@@ -107,7 +119,7 @@ export default function Navbar () {
                     </div>
 
                     <div className={navbar.language}>
-                        <FontAwesomeIcon icon={faLanguage} />
+                        <FontAwesomeIcon icon={faLanguage} onClick={changeLanguage} />
                     </div>
                 </div>
             </>
