@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'node_modules/next/router';
-import useUserStore from '@/services/reducers/userStore';
 
 import { StringValidator } from '@/services/utils/regex';
 import Request from '../../services/actions/index';
@@ -157,10 +156,6 @@ export default function Register() {
         
     }, [formData.city])
 
-
-
-    const { user, setUser } = useUserStore();
-
     const [userPassword, setUserPassword] = useState('');
     const handleUserPassword = (e) => {
         const newVal = e.target.value;
@@ -183,7 +178,8 @@ export default function Register() {
         Request.auth.loginUser(params)
           .then( async res => {
             const userData = res.data.user_data;
-            await setUser(userData);
+            localStorage.setItem("user", JSON.stringify(userData));
+            window.dispatchEvent(new Event('storage'));
             toast.success(res.data.message, defaultConfig);
             router.push('/')
           })
@@ -201,7 +197,8 @@ export default function Register() {
         Request.auth.loginUser(params)
           .then( async res => {
             const userData = res.data.user_data;
-            await setUser(userData);
+            localStorage.setItem("user", JSON.stringify(userData));
+            window.dispatchEvent(new Event('storage'));
             toast.success(res.data.message, defaultConfig);
             router.push('/')
           })
@@ -280,6 +277,8 @@ export default function Register() {
                   </footer>
 
               </div>
+
+              {/*/////// LOGIN ///////*/}
               <div className={`tw-w-1/2 tw-p-4 tw-justify-center tw-text-center tw-border-thin tw-border-r tw-border-gray-500`}>
                   <div className='tw-pb-4 tw-text-2xl'>
                     {t('register.login')}

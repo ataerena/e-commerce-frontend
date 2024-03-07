@@ -12,17 +12,15 @@ import clsx from 'clsx';
 
 import Dropdown from '../components/Dropdown';
 
-import useUserStore from '@/services/reducers/userStore';
-
 export default function Navbar () {
     const t = useTranslations('navbar');
     const router = useRouter();
-
-    const {user, setUser } = useUserStore();
+    const [user, setUser] = useState(null);
     const loggedIn = user ? true : false;
 
     const logout = () => {
-        setUser(null);
+        localStorage.clear();
+        window.dispatchEvent(new Event('storage'))
     }
 
     const [settingsOn, setSettingsOn] = useState(true);
@@ -36,11 +34,6 @@ export default function Navbar () {
     };
 
     const settingsItems = [
-        /* {
-            text: t('settings.login'),
-            route: "/auth/login",
-            logStateExistance: false,
-        }, */
         {
             text: t('settings.logout'),
             route: "/",
@@ -70,6 +63,19 @@ export default function Navbar () {
                                   ${clsx(settingsClicked && !settingsOn && icon['positive-spinner'])}`}  
                                   onClick={handleSettingsClick}/>;
 
+
+    useEffect(() => {
+        console.log(localStorage);
+
+        const handleStorageChange = () => {
+          setUser(JSON.parse(localStorage.getItem('user')));
+        };  
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+          window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
 
     return (
             <>
